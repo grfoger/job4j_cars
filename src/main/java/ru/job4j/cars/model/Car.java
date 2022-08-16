@@ -14,6 +14,8 @@ import java.util.Set;
 @AllArgsConstructor
 public class Car {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private int id;
 
