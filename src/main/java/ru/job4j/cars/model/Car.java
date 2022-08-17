@@ -19,6 +19,8 @@ public class Car {
     @EqualsAndHashCode.Include
     private int id;
 
+    @ManyToOne
+    @JoinColumn(name = "engine_id", foreignKey = @ForeignKey(name = "ENGINE_ID_FK"))
     private Engine engine;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
