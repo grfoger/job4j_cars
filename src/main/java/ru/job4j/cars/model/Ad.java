@@ -16,14 +16,13 @@ public class Ad {
     private int id;
 
     private String description;
-    private String brand;
-    private String model;
-    private String body;
     private byte[] photo;
     private boolean sold;
 
+    private Car car;
+
     @ManyToOne
-    @JoinColumn(name = "account_id", foreignKey = @ForeignKey(name = "ACCOUNT_ID_FK"))
-    private Account account;
+    @JoinColumn(name = "driver_id", foreignKey = @ForeignKey(name = "DRIVER_ID_FK"))
+    private Driver driver;
 
 }

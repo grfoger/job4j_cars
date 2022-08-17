@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Engine {
+public class Model {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

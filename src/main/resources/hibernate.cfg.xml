@@ -20,8 +20,10 @@
 
         <mapping class="ru.job4j.cars.model.Car" />
         <mapping class="ru.job4j.cars.model.Engine" />
+        <mapping class="ru.job4j.cars.model.Brand" />
+        <mapping class="ru.job4j.cars.model.Model" />
+        <mapping class="ru.job4j.cars.model.Body" />
         <mapping class="ru.job4j.cars.model.Driver" />
-        <mapping class="ru.job4j.cars.model.Account" />
         <mapping class="ru.job4j.cars.model.Ad" />
 
     </session-factory>
