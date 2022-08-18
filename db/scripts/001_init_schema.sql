@@ -1,6 +1,7 @@
 create table engine(
     id serial primary key,
-    name varchar(255)
+    volume float,
+    power int
 );
 
 create table brand(
@@ -15,7 +16,13 @@ create table model(
 
 create table body(
     id serial primary key,
-    name varchar(255)
+    type varchar(255),
+    equipment varchar(255)
+);
+
+create table transmission(
+                     id serial primary key,
+                     type varchar(255)
 );
 
 create table driver(
@@ -29,7 +36,8 @@ create table car(
                     engine_id int not null references engine(id),
                     brand_id int not null references brand(id),
                     model_id int not null references model(id),
-                    body_id int not null references body(id)
+                    body_id int not null references body(id),
+                    transmission_id int not null references transmission(id)
 );
 
 create table history_owner(

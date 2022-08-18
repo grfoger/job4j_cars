@@ -11,13 +11,12 @@ import javax.persistence.Id;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Engine {
+public class Transmission {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private int id;
-
-    private float volume;
-    private int power;
+    private String type;
 }
+

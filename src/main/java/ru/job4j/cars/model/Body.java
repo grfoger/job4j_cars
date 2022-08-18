@@ -18,5 +18,7 @@ public class Body {
     @EqualsAndHashCode.Include
     private int id;
 
-    private String name;
+    private String type;
+    private String equipment;
 }
+
