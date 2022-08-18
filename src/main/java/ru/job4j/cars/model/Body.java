@@ -20,5 +20,7 @@ public class Body {
 
     private String type;
     private String equipment;
+
+    private String color;
 }
 

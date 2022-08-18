@@ -17,7 +17,8 @@ create table model(
 create table body(
     id serial primary key,
     type varchar(255),
-    equipment varchar(255)
+    equipment varchar(255),
+    color varchar(255)
 );
 
 create table transmission(
