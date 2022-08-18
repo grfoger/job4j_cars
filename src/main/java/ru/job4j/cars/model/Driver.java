@@ -11,6 +11,8 @@ import java.util.Set;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "driver")
 public class Driver {
 
     @Id

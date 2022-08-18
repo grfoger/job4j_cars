@@ -8,6 +8,8 @@ import javax.persistence.*;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "ad")
 public class Ad {
 
     @Id

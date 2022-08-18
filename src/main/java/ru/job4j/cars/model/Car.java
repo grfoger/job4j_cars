@@ -12,6 +12,8 @@ import java.util.Set;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "car")
 public class Car {
 
     @Id
