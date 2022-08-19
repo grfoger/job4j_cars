@@ -8,6 +8,7 @@ import javax.persistence.*;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "ad")
 public class Ad {
@@ -21,6 +22,7 @@ public class Ad {
     private byte[] photo;
     private boolean sold;
 
+    @OneToOne
     private Car car;
 
     @ManyToOne

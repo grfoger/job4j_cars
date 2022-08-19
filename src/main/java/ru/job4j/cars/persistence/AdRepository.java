@@ -13,6 +13,10 @@ import java.util.function.Function;
 
 public class AdRepository {
 
+    public static void main(String[] args) {
+        System.out.println(new AdRepository().noPhotoAds());
+    }
+
     private <T> T tx(final Function<Session, T> command) {
         T result = null;
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
@@ -37,6 +41,12 @@ public class AdRepository {
     public Collection<Ad> values() {
         return this.tx(
                 session -> session.createQuery("from Ad").list()
+        );
+    }
+
+    public Collection<Ad> noPhotoAds() {
+        return this.tx(
+                session -> session.createQuery("from Ad where photo = null").list()
         );
     }
 
