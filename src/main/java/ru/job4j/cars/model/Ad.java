@@ -2,6 +2,7 @@ package ru.job4j.cars.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -21,6 +22,7 @@ public class Ad {
     private String description;
     private byte[] photo;
     private boolean sold;
+    private final LocalDateTime created = LocalDateTime.now();
 
     @OneToOne
     private Car car;

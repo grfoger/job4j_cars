@@ -53,5 +53,6 @@ create table ad(
                    car_id int not null unique references car(id),
                    photo bytea,
                    sold boolean,
-                   driver_id int not null references driver(id)
+                   driver_id int not null references driver(id),
+                   created timestamp
 );

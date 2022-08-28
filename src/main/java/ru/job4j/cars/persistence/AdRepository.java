@@ -7,14 +7,18 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import ru.job4j.cars.model.Ad;
+import ru.job4j.cars.model.Brand;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.function.Function;
 
 public class AdRepository {
 
     public static void main(String[] args) {
-        System.out.println(new AdRepository().noPhotoAds());
+        Brand brand = new Brand();
+        brand.setId(1);
+        System.out.println(new AdRepository().adsByBrand(brand));
     }
 
     private <T> T tx(final Function<Session, T> command) {
@@ -49,5 +53,20 @@ public class AdRepository {
                 session -> session.createQuery("from Ad where photo = null").list()
         );
     }
+
+    public Collection<Ad> lastDayAds() {
+        return this.tx(
+                session -> session.createQuery("from Ad where created > :created")
+                        .setParameter("created", LocalDateTime.now().minusDays(1)).list()
+        );
+    }
+
+    public Collection<Ad> adsByBrand(Brand brand) {
+        return this.tx(
+                session -> session.createQuery("from Ad where car.brand.id = :brandId")
+                        .setParameter("brandId", brand.getId()).list()
+        );
+    }
+
 
 }
