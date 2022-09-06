@@ -14,6 +14,14 @@ import java.time.LocalDateTime;
 @Table(name = "ad")
 public class Ad {
 
+    public Ad(String description, byte[] photo, boolean sold, Car car, Driver driver) {
+        this.description = description;
+        this.photo = photo;
+        this.sold = sold;
+        this.car = car;
+        this.driver = driver;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
