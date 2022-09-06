@@ -11,15 +11,11 @@ import ru.job4j.cars.model.Brand;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Optional;
 import java.util.function.Function;
 
 public class AdRepository {
 
-    public static void main(String[] args) {
-        Brand brand = new Brand();
-        brand.setId(1);
-        System.out.println(new AdRepository().adsByBrand(brand));
-    }
 
     private <T> T tx(final Function<Session, T> command) {
         T result = null;
@@ -40,6 +36,12 @@ public class AdRepository {
             StandardServiceRegistryBuilder.destroy(registry);
         }
         return result;
+    }
+
+    public Ad add(Ad ad) {
+        return this.tx(
+                session -> (Ad) session.save(ad)
+        );
     }
 
     public Collection<Ad> values() {
