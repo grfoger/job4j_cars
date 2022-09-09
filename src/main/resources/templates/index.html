@@ -56,10 +56,10 @@
             <tr th:each="ad: ${ads}">
                 <td th:text="${ad.description}"></td>
                 <td th:text="${ad.photo}"></td>
-                <td th:text="${ad.car.brand} + ' ' + ${ad.car.model}"></td>
+                <td th:text="${ad.car.brand.name} + ' ' + ${ad.car.model.name}"></td>
                 <td th:if="${ad.sold == true}">&#10007Продано</td>
                 <td th:if="${ad.sold == false}">&#10003Продаётся</td>
-                <td th:text="${#dates.format(ad.created, 'dd.MM.yy')}"></td>
+                <td th:text="${#temporals.format(ad.created, 'dd.MM.yy')}"></td>
                 <td th:text="${ad.driver.login}"></td>
             </tr>
             </tbody>

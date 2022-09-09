@@ -6,6 +6,7 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.springframework.stereotype.Repository;
 import ru.job4j.cars.model.Ad;
 import ru.job4j.cars.model.Brand;
 
@@ -14,6 +15,7 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.function.Function;
 
+@Repository
 public class AdRepository {
 
 
