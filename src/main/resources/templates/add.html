@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <title>Регистрация</title>
+</head>
+<body>
+<div class="container">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">Регистрация</a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+
+                <a class="nav-item nav-link active" th:href="@{/reg}">Зарегистрироваться</a>
+                <a class="nav-item nav-link" th:if="${user.login == 'Гость'}" th:href="@{/login}">
+                    <span th:text="${user.login}"></span>
+                    <span> | Войти | </span>
+                </a>
+                <a class="nav-item nav-link" th:if="${user.login != 'Гость'}" th:href="@{/logout}">
+                    <span th:text="${user.login}"></span>
+                    <span> | Выйти | </span>
+                </a>
+
+                <a class="nav-item nav-link" th:href="@{/index}">Объявления</a>
+                <a class="nav-item nav-link" th:if="${user.login != 'Гость'}" th:href="@{/add}">Подать объявление</a>
+            </div>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="card" style="width: 100%">
+            <div class="card-header">
+                Добавить объявление
+            </div>
+            <div class="card-body">
+                <form th:action="@{/add}" method="POST" enctype="multipart/form-data" th:object="${ad}">
+                    <input type="hidden" name="id" value="0"/>
+                    <input type="hidden" name="sold" value="false"/>
+                    <input type="hidden" name="drier" th:value="${user}"/>
+                    <div class="form-group">
+                        <label for="description">Описание</label>
+                        <input type="text" class="form-control" name="description" id="description">
+                        <label for="photo">Фотография</label>
+                        <input type="file" class="form-control" name="photo" id="photo">
+                        <label for="cars">Авто</label>
+                        </br>
+                        <select name="carId" multiple size="3" id="cars">
+                            <option th:each="car : ${cars}"
+                                    th:value="${car.id}"
+                                    th:text =
+                                             "'Марка:'+${car.brand.name}
+                                             + ' / Модель: '+ ${car.model.name}
+                                             + ' / Двигатель: '+ ${car.engine.power}
+                                             + 'лс / Кузов: '+ ${car.body.type} + ' ' + ${car.body.equipment}
+                                             + ' / Коробка: '+ ${car.transmission.type}">
+                            </option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Зарегистрировать</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
