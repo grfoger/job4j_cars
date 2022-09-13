@@ -30,7 +30,7 @@ public class Ad {
     private String description;
     private byte[] photo;
     private boolean sold;
-    private final LocalDateTime created = LocalDateTime.now();
+    private LocalDateTime created = LocalDateTime.now();
 
     @OneToOne
     private Car car;

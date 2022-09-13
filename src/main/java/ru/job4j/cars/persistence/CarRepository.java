@@ -8,6 +8,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.springframework.stereotype.Repository;
 import ru.job4j.cars.model.Car;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.function.Function;
 
@@ -39,5 +40,11 @@ public class CarRepository {
         return this.tx(
                 session -> session.createQuery("from Car").list()
         );
+    }
+
+    public Car getCarById(int carId) {
+        return this.tx(
+                session -> (Car) session.createQuery("from Car where id = :id")
+                        .setParameter("id", carId).uniqueResult());
     }
 }

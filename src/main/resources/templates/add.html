@@ -49,15 +49,15 @@
                 <form th:action="@{/add}" method="POST" enctype="multipart/form-data" th:object="${ad}">
                     <input type="hidden" name="id" value="0"/>
                     <input type="hidden" name="sold" value="false"/>
-                    <input type="hidden" name="drier" th:value="${user}"/>
+                    <input type="hidden" name="driverId" th:value="${user.id}"/>
                     <div class="form-group">
                         <label for="description">Описание</label>
                         <input type="text" class="form-control" name="description" id="description">
                         <label for="photo">Фотография</label>
-                        <input type="file" class="form-control" name="photo" id="photo">
-                        <label for="cars">Авто</label>
+                        <input type="file" class="form-control" name="file" id="photo">
+                        <label for="car">Авто</label>
                         </br>
-                        <select name="carId" multiple size="3" id="cars">
+                        <select name="carId" size="5" id="car">
                             <option th:each="car : ${cars}"
                                     th:value="${car.id}"
                                     th:text =
@@ -69,7 +69,7 @@
                             </option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Зарегистрировать</button>
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
                 </form>
             </div>
         </div>

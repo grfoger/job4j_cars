@@ -22,4 +22,8 @@ public class DriverService {
     public Optional<Driver> findUserByLoginAndPass(String login, String password) {
         return driverRepository.findUserByLoginAndPass(login, password);
     }
+
+    public Driver getDriverByID(int driverId) {
+        return driverRepository.getDriverById(driverId);
+    }
 }

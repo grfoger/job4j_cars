@@ -50,9 +50,10 @@ create table if not exists driver_car(
 create table if not exists ad(
                    id serial primary key,
                    description text,
-                   car_id int not null unique references car(id),
+                   car_id int not null references car(id),
                    photo bytea,
                    sold boolean,
                    driver_id int not null references driver(id),
                    created timestamp
 );
+

@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
+import ru.job4j.cars.model.Car;
 import ru.job4j.cars.model.Driver;
 
 import java.util.Optional;
@@ -48,5 +49,11 @@ public class DriverRepository {
                         .setParameter("login", login)
                         .setParameter("password", password)
                         .uniqueResultOptional());
+    }
+
+    public Driver getDriverById(int driverId) {
+        return this.tx(
+                session -> (Driver) session.createQuery("from Driver where id = :id")
+                        .setParameter("id", driverId).uniqueResult());
     }
 }

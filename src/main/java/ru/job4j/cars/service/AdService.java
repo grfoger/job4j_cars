@@ -19,4 +19,12 @@ public class AdService {
     public List<Ad> getAllAds() {
         return (List) adRepository.values();
     }
+
+    public Ad add(Ad ad) {
+       return adRepository.add(ad);
+    }
+
+    public Ad findById(int id) {
+        return adRepository.getById(id);
+    }
 }

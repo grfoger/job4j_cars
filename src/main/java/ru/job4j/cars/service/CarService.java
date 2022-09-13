@@ -18,4 +18,8 @@ public class CarService {
     public Collection<Car> getAllCars() {
         return carRepository.getAllCars();
     }
+
+    public Car getCarById(int carId) {
+        return carRepository.getCarById(carId);
+    }
 }

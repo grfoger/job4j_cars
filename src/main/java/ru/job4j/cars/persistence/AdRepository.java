@@ -9,6 +9,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.springframework.stereotype.Repository;
 import ru.job4j.cars.model.Ad;
 import ru.job4j.cars.model.Brand;
+import ru.job4j.cars.model.Car;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -41,9 +42,8 @@ public class AdRepository {
     }
 
     public Ad add(Ad ad) {
-        return this.tx(
-                session -> (Ad) session.save(ad)
-        );
+        tx(session -> session.save(ad));
+        return ad;
     }
 
     public Collection<Ad> values() {
@@ -73,4 +73,9 @@ public class AdRepository {
     }
 
 
+    public Ad getById(int id) {
+        return this.tx(
+                session -> (Ad) session.createQuery("from Ad where id = :id")
+                        .setParameter("id", id).uniqueResult());
+    }
 }
