@@ -78,4 +78,13 @@ public class AdRepository {
                 session -> (Ad) session.createQuery("from Ad where id = :id")
                         .setParameter("id", id).uniqueResult());
     }
+
+    public Ad update(Ad ad) {
+        tx(session -> {
+            session.update(ad);
+            return null;
+        });
+        return ad;
+    }
+
 }

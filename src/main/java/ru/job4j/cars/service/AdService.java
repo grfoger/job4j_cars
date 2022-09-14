@@ -27,4 +27,8 @@ public class AdService {
     public Ad findById(int id) {
         return adRepository.getById(id);
     }
+
+    public Ad update(Ad ad) {
+        return adRepository.update(ad);
+    }
 }

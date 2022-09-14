@@ -60,7 +60,13 @@
                 </td>
                 <td th:text="${ad.car.brand.name} + ' ' + ${ad.car.model.name}"></td>
                 <td th:if="${ad.sold == true}">&#10007Продано</td>
-                <td th:if="${ad.sold == false}">&#10003Продаётся</td>
+                <td th:if="${ad.sold == false}">
+                    <span th:if="${user.login != ad.driver.login}">&#10003</span>
+                    <a th:if="${user.login == ad.driver.login}" th:href="@{|/setSold/${ad.id}|}">
+                        &#10003
+                    </a>
+                    Продаётся
+                </td>
                 <td th:text="${#temporals.format(ad.created, 'dd.MM.yy')}"></td>
                 <td th:text="${ad.driver.login}"></td>
             </tr>

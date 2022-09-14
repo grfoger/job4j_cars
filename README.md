@@ -2,9 +2,24 @@
 Приложение "Cars" - сервис по продаже машин.
 Стек технологий: Spring boot, Thymeleaf, Bootstrap, Hibernate, PostgreSql, Liquibase, lombok
 
-На сайте должны быть объявления. В объявлении должно быть: описание, марка машины, тип кузова, фото.
+На сайте продаж существуют объявления. В объявлении указано: описание, марка машины, тип кузова, фото.
 Объявление имеет статус продано или нет.
-Должны существовать пользователи. Автор объявления.
+Имеются пользователи - авторы объявления. Только они имеют возможность поменять статус на "продано".
+
+Виды.
+- Страница со списком всех объявлений. 
+- Страница добавления нового объявления.
+- Страница регистрации нового пользователя.
+- Страница входа по логину и паролю.
+
+<img src="https://github.com/grfoger/job4j_cars/blob/master/src/main/resources/images/1.JPG" width="600"/>
+<br/>
+<img src="https://github.com/grfoger/job4j_cars/blob/master/src/main/resources/images/2.JPG" width="600"/>
+<br/>
+<img src="https://github.com/grfoger/job4j_cars/blob/master/src/main/resources/images/3.JPG" width="600"/>
+<br/>
+<img src="https://github.com/grfoger/job4j_cars/blob/master/src/main/resources/images/4.JPG" width="600"/>
+<br/>\
 
 ### 2. Сборка:
 Maven

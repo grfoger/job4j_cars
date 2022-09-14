@@ -81,4 +81,14 @@ public class AdController {
                 .body(new ByteArrayResource(ad.getPhoto()));
     }
 
+    @GetMapping("/setSold/{adId}")
+    public String setSold(Model model, HttpSession session, @PathVariable("adId") int id) {
+        Ad ad = adService.findById(id);
+        ad.setSold(true);
+        adService.update(ad);
+        model.addAttribute("ads", adService.getAllAds());
+        model.addAttribute("user", getUser(session));
+        return "index";
+    }
+
 }
