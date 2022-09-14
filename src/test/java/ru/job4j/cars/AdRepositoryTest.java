@@ -26,14 +26,14 @@ public class AdRepositoryTest {
     public void noPhotoTest() {
         AdRepository adR = new AdRepository();
        List<Ad> list = (List) adR.noPhotoAds();
-        assertThat(list.size(), is(2));
+        assertThat(list.size(), is(4));
     }
 
     @Test
     public void valuesTest() {
         AdRepository adR = new AdRepository();
         List<Ad> list = (List) adR.values();
-        assertThat(list.size(), is(3));
+        assertThat(list.size(), is(4));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class AdRepositoryTest {
         Brand br = new Brand();
         br.setId(1);
         List<Ad> list = (List) adR.adsByBrand(br);
-        assertThat(list.size(), is(3));
+        assertThat(list.size(), is(2));
     }
 
 }
