@@ -19,7 +19,9 @@
 <img src="https://github.com/grfoger/job4j_cars/blob/master/src/main/resources/images/3.JPG" width="600"/>
 <br/>
 <img src="https://github.com/grfoger/job4j_cars/blob/master/src/main/resources/images/4.JPG" width="600"/>
-<br/>\
+<br/>
+<img src="https://github.com/grfoger/job4j_cars/blob/master/src/main/resources/images/5.JPG" width="600"/>
+<br/>
 
 ### 2. Сборка:
 Maven
